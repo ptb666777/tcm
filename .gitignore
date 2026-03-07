@@ -1,0 +1,6 @@
+vdc_output/
+*.log
+*.vti
+*.jsonl
+**/vdc_output/
+*.png

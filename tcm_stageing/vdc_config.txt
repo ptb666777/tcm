@@ -1,0 +1,184 @@
+# ============================================================
+# VDC Simulation Configuration File
+# Edit values after the = sign. Do not remove # comment lines.
+# ============================================================
+
+# --- GRID ---
+# Size of the 3D simulation grid per axis.
+# Total cells = N^3. Memory scales fast: 64=262K, 96=884K, 128=2M cells.
+# Recommended range: 48 (fast/rough) to 128 (detailed, needs RAM).
+# Default: 64
+N = 64
+
+# Number of simulation steps to run.
+# More steps = longer evolution. Each step ~0.5-2 sec depending on N and cores.
+# Recommended range: 200 (quick test) to 2000 (full run).
+# Default: 350
+steps = 200
+
+# --- OUTPUT ---
+# Folder where PNG images and VTK files are saved.
+# Created automatically if it doesn't exist.
+output_dir = vdc_output_2
+
+# Save a snapshot every X steps (PNG + VTK).
+# Lower = more frames = smoother animation, more disk space.
+# At N=64, each VTK file is ~1.5 MB.
+# Recommended range: 5 (smooth) to 50 (sparse).
+# Default: 10
+snap_every = 10
+
+# --- MULTIPROCESSING ---
+# Number of CPU cores to use for the gravity calculation.
+# Set to 0 to use all available cores minus 1 (keeps core 0 free for Windows).
+# Set to 1 to disable multiprocessing (safest, slowest).
+# Recommended: 0 (auto) or a specific number like 7.
+# Default: 0 (auto = all cores minus 1)
+cpu_cores = 0
+
+# --- WAVE PHYSICS ---
+# Speed of substrate wave propagation.
+# MUST stay below 0.5 or simulation explodes (Courant condition).
+# Recommended range: 0.3 to 0.48.
+# Default: 0.45
+wave_speed = 0.45
+
+# Surface tension restoring force strength.
+# Higher = waves snap back harder, less amplitude, more stable.
+# Lower = waves grow larger, more structure seeding, risk of instability.
+# Recommended range: 0.005 to 0.04.
+# Default: 0.015
+surf_tension = 0.015
+
+# Maximum wave amplitude before surface tension clamps hard.
+# Waves beyond this are rubber-banded back strongly.
+# Recommended range: 4.0 to 15.0.
+# Default: 8.0
+surf_limit = 8.0
+
+# How strongly wave gradient pushes matter (velocity nudge only).
+# Higher = wave patterns more visible in matter distribution.
+# Too high = matter sloshes chaotically.
+# Recommended range: 0.003 to 0.02.
+# Default: 0.008
+wave_couple = 0.008
+
+# --- GRAVITY ---
+# Short-range self-gravity: local clumps pulling on themselves.
+# Higher = cores concentrate faster.
+# Too high = everything collapses to one point.
+# Recommended range: 0.004 to 0.02.
+# Default: 0.009
+self_grav = 0.009
+
+# Long-range gravity: pull toward density peaks.
+# Higher = large-scale structure forms faster.
+# Recommended range: 0.005 to 0.025.
+# Default: 0.013
+long_grav = 0.013
+
+# Maximum radius (in cells) for long-range gravity to reach.
+# Think of this as the Jeans length - gravity only pulls locally.
+# Recommended range: 6 to 20.
+# Default: 10
+jeans_length = 10
+
+# --- PRESSURE & COOLING ---
+# Pressure coefficient during plasma epoch (hot phase).
+# Higher = matter resists compression more strongly early on.
+# Recommended range: 0.05 to 0.20.
+# Default: 0.10
+pressure_k = 0.10
+
+# Step at which plasma epoch ends and cooling begins.
+# Default: 60
+plasma_end = 60
+
+# Step at which cooling finishes (structure epoch begins).
+# Default: 160
+cooling_end = 160
+
+# Minimum pressure fraction after cooling (residual warmth).
+# Default: 0.10
+cool_floor = 0.10
+
+# --- MAGNUS / TIDAL FORCE ---
+# Rotating fluid creates perpendicular force (spin tidal effect).
+# This is the magnetism-as-vortex-property mechanism.
+# Higher = more spin structures and chirality.
+# Recommended range: 0.005 to 0.025.
+# Default: 0.014
+magnus_str = 0.014
+
+# --- BLACK HOLE / SUBWAY ---
+# Fraction of extreme density drained to subway per step.
+# This is the hard cap on how fast matter enters the subway.
+# Lower = slower drain, subway fills less fast.
+# Recommended range: 0.002 to 0.015.
+# Default: 0.007
+bh_drain = 0.007
+
+# Percentile above which cells act as black hole drains.
+# 99.2 = top 0.8% of cells. Higher = fewer but more extreme BH cells.
+# Recommended range: 97.0 to 99.8.
+# Default: 99.2
+bh_percentile = 99.2
+
+# --- GEYSER / SUBWAY OSCILLATION ---
+# Fraction of subway injected per geyser per step.
+# Scales with subway level - more subway = bigger eruption.
+# This creates the relaxation oscillator (heartbeat) behavior.
+# Recommended range: 0.0005 to 0.005.
+# Default: 0.0015
+subway_scale = 0.0015
+
+# Maximum injection per geyser per step (hard ceiling).
+# Prevents a single geyser from dumping the entire subway at once.
+# Recommended range: 2.0 to 20.0.
+# Default: 8.0
+subway_max_inject = 8.0
+
+# How much subway pressure lowers the tear threshold.
+# Higher = high subway pressure makes voids tear more easily = faster oscillation.
+# This couples the subway fill level to geyser frequency.
+# Recommended range: 0.00001 to 0.0001.
+# Default: 0.00002
+subway_press_coeff = 0.00002
+
+# Max tear threshold from subway pressure (caps the effect).
+# Default: 0.05
+tear_thresh_max = 0.05
+
+# --- PEAK OUTFLOW (stellar wind / radiation pressure) ---
+# Percentile above which dense peaks push matter outward.
+# Creates halos and feeds filaments from cores.
+# Recommended range: 0.95 to 0.995.
+# Default: 0.98
+outflow_percentile = 0.98
+
+# Strength of outward push from dense peaks.
+# Higher = stronger winds, more halo structure, cores stay less dense.
+# Recommended range: 0.003 to 0.03.
+# Default: 0.012
+outflow_str = 0.012
+
+# --- INITIAL CONDITIONS ---
+# Random seed for reproducibility. Set to 0 for random each run.
+# Any other integer gives the same result every time.
+# Default: 42
+random_seed = 42
+
+# Boom location offset from center (in cells).
+# Off-center boom is what produces asymmetric chirality.
+# Default: 2 1 1  (x_offset y_offset z_offset)
+boom_offset = 2 1 1
+
+# Initial wave energy released at boom.
+# Default: 60.0
+boom_wave = 60.0
+
+# Maximum matter velocity cap.
+# Prevents numerical instability from runaway speeds.
+# Recommended range: 1.5 to 3.0.
+# Default: 2.0
+v_cap = 2.0
