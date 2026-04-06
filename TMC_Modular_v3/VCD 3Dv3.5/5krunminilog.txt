@@ -1,0 +1,229 @@
+(base) C:\Users\Patrick\Documents\GitHub\tcm\TMC_Modular_v3\VCD 3Dv3.5>python run_vdc.py
+[10:59:14] Kernel initialized | N=64 | steps=5000 | output=vdc_output_20260311_105914
+[10:59:14]   [ENABLED] Module registered: matter_state
+[10:59:14]   [ENABLED] Module registered: substrate
+[10:59:14]   [ENABLED] Module registered: wave
+[10:59:14]   [ENABLED] Module registered: gravity
+[10:59:14]   [ENABLED] Module registered: em
+[10:59:14]   [ENABLED] Module registered: thermal
+[10:59:14]   [ENABLED] Module registered: vortex
+[10:59:14]   [ENABLED] Module registered: angular_momentum
+[10:59:14]   [ENABLED] Module registered: cycle
+[10:59:14]
+Starting simulation | 9 modules active
+[10:59:14] Config: C:\Users\Patrick\Documents\GitHub\tcm\TMC_Modular_v3\VCD 3Dv3.5\vdc_config.txt
+[10:59:14]
+Initializing modules...
+  MatterState: epoch sequence active
+  Thresholds: confinement=0.7 recombination=0.2
+[10:59:14]   matter_state: initialized
+  Substrate v3: fluid pin model active
+  Mean density: 0.240787
+  Pin crystallization threshold: vort>0.005 for 20 steps
+[10:59:14]   substrate: initialized
+[10:59:14]   wave: initialized
+[10:59:14]   gravity: initialized
+  EM: initialized | screen_length=8.0 cells
+  EM: vortex coupling active | vort_em_couple=0.35
+[10:59:14]   em: initialized
+[10:59:14]   thermal: initialized
+[10:59:14]   vortex: initialized
+  AngularMomentum: initialized | L_couple=0.45
+  Collapse detection threshold: 0.0005
+[10:59:14]   angular_momentum: initialized
+[10:59:14]   cycle: initialized
+[10:59:14]
+Initial state: matter=63121 core=0.421 void=0.000 subway=0 wave_E=0 vort_mag=0.00000
+[10:59:14]
+============================================================
+[10:59:23] step    30/5000 | [plasma_hot] T=0.98 | matter=67749 core=0.410 void=0.000 subway=0 wave_E=0 vort_mag=0.00471 | 4.1 steps/s | ETA 20.2min
+  [step 31] Wave: PINS LOCKED - membrane oscillation begins at 205146 sites (vort_max=0.03819)
+[10:59:31] step    60/5000 | [plasma_hot] T=0.95 | matter=74836 core=0.440 void=0.000 subway=0 wave_E=11415 vort_mag=0.01308 | 3.7 steps/s | ETA 22.1min
+[10:59:39] step    90/5000 | [plasma_hot] T=0.93 | matter=82417 core=0.496 void=0.000 subway=0 wave_E=8969 vort_mag=0.01913 | 3.7 steps/s | ETA 21.8min
+[10:59:48] step   120/5000 | [plasma_hot] T=0.90 | matter=90443 core=0.552 void=0.000 subway=0 wave_E=6597 vort_mag=0.02303 | 3.7 steps/s | ETA 22.3min
+  [step 125] EPOCH: plasma_hot -> plasma_cooling (T=0.8995)
+[10:59:56] step   150/5000 | [plasma_cooling] T=0.88 | matter=98568 core=0.608 void=0.000 subway=0 wave_E=5634 vort_mag=0.02518 | 3.7 steps/s | ETA 22.0min
+[11:00:06] step   180/5000 | [plasma_cooling] T=0.85 | matter=106253 core=0.645 void=0.000 subway=0 wave_E=6511 vort_mag=0.02569 | 3.6 steps/s | ETA 22.6min
+[11:00:15] step   210/5000 | [plasma_cooling] T=0.83 | matter=113188 core=0.667 void=0.000 subway=0 wave_E=8879 vort_mag=0.02503 | 3.5 steps/s | ETA 22.7min
+[11:00:23] step   240/5000 | [plasma_cooling] T=0.80 | matter=119258 core=0.678 void=0.000 subway=0 wave_E=11438 vort_mag=0.02373 | 3.5 steps/s | ETA 22.4min
+[11:00:32] step   270/5000 | [plasma_cooling] T=0.78 | matter=124527 core=0.686 void=0.000 subway=0 wave_E=12351 vort_mag=0.02210 | 3.5 steps/s | ETA 22.4min
+[11:00:40] step   300/5000 | [plasma_cooling] T=0.75 | matter=129127 core=0.691 void=0.000 subway=0 wave_E=11167 vort_mag=0.02037 | 3.5 steps/s | ETA 22.1min
+[11:00:49] step   330/5000 | [plasma_cooling] T=0.73 | matter=133201 core=0.695 void=0.000 subway=0 wave_E=8693 vort_mag=0.01870 | 3.5 steps/s | ETA 22.1min
+  [step 342] Confinement: latent heat released, pins locking, membrane oscillation begins
+[11:00:58] step   360/5000 | [plasma_cooling] T=0.75 | matter=136830 core=0.698 void=0.000 subway=0 wave_E=6445 vort_mag=0.01721 | 3.5 steps/s | ETA 22.0min
+[11:01:06] step   390/5000 | [plasma_cooling] T=0.73 | matter=140117 core=0.701 void=0.000 subway=0 wave_E=5636 vort_mag=0.01584 | 3.5 steps/s | ETA 21.8min
+[11:01:15] step   420/5000 | [plasma_cooling] T=0.70 | matter=143071 core=0.703 void=0.000 subway=0 wave_E=6721 vort_mag=0.01468 | 3.5 steps/s | ETA 21.8min
+  [step 425] EPOCH: plasma_cooling -> confinement (T=0.6996)
+  [step 444] Pin #1 crystallized at (0,0,1) vort=0.0483
+  [step 444] Pin #51 crystallized at (0,18,7) vort=0.0145
+  [step 444] Pin #101 crystallized at (0,41,10) vort=0.0523
+  [step 444] Pin #151 crystallized at (0,61,33) vort=0.0367
+  [step 444] Pin #201 crystallized at (1,15,54) vort=0.0765
+  [step 444] Pin #251 crystallized at (1,37,42) vort=0.0301
+  [step 444] Pin #301 crystallized at (1,60,12) vort=0.0736
+  [step 444] Pin #351 crystallized at (2,15,6) vort=0.0562
+  [step 444] Pin #401 crystallized at (2,38,27) vort=0.0111
+  [step 444] Pin #451 crystallized at (2,60,55) vort=0.0400
+  [step 444] Pin #501 crystallized at (3,18,12) vort=0.0204
+  [step 444] Pin #551 crystallized at (3,38,49) vort=0.0406
+  [step 444] Pin #601 crystallized at (3,62,21) vort=0.0163
+  [step 444] Pin #651 crystallized at (4,20,28) vort=0.0630
+  [step 444] Pin #701 crystallized at (4,47,40) vort=0.0130
+  [step 444] Pin #751 crystallized at (5,10,26) vort=0.0537
+  [step 444] Pin #801 crystallized at (5,31,58) vort=0.0544
+  [step 444] Pin #851 crystallized at (5,60,44) vort=0.0596
+  [step 444] Pin #901 crystallized at (6,11,30) vort=0.0372
+  [step 444] Pin #951 crystallized at (6,34,62) vort=0.0594
+  [step 444] Pin #1001 crystallized at (6,62,0) vort=0.0596
+  [step 444] Pin #1051 crystallized at (7,17,62) vort=0.0099
+  [step 444] Pin #1101 crystallized at (7,39,9) vort=0.0948
+  [step 444] Pin #1151 crystallized at (8,3,26) vort=0.0251
+  [step 444] Pin #1201 crystallized at (8,23,39) vort=0.0548
+  [step 444] Pin #1251 crystallized at (8,49,11) vort=0.0578
+  [step 444] Pin #1301 crystallized at (9,3,17) vort=0.0238
+  [step 444] Pin #1351 crystallized at (9,23,49) vort=0.0435
+  [step 444] Pin #1401 crystallized at (9,50,16) vort=0.0348
+  [step 444] Pin #1451 crystallized at (10,9,17) vort=0.0388
+  [step 444] Pin #1501 crystallized at (10,26,55) vort=0.0777
+  [step 444] Pin #1551 crystallized at (10,50,47) vort=0.1392
+  [step 444] Pin #1601 crystallized at (11,8,17) vort=0.0636
+  [step 444] Pin #1651 crystallized at (11,29,36) vort=0.0188
+  [step 444] Pin #1701 crystallized at (11,55,44) vort=0.0821
+  [step 444] Pin #1751 crystallized at (12,11,21) vort=0.0393
+  [step 444] Pin #1801 crystallized at (12,34,5) vort=0.0445
+  [step 444] Pin #1851 crystallized at (12,54,32) vort=0.0434
+  [step 444] Pin #1901 crystallized at (13,6,49) vort=0.0377
+  [step 444] Pin #1951 crystallized at (13,31,44) vort=0.0377
+  [step 444] Pin #2001 crystallized at (13,53,16) vort=0.0302
+  [step 444] Pin #2051 crystallized at (14,6,47) vort=0.0496
+  [step 444] Pin #2101 crystallized at (14,31,3) vort=0.0859
+  [step 444] Pin #2151 crystallized at (14,55,16) vort=0.0275
+  [step 444] Pin #2201 crystallized at (15,11,26) vort=0.0283
+  [step 444] Pin #2251 crystallized at (15,38,12) vort=0.0789
+  [step 444] Pin #2301 crystallized at (16,5,58) vort=0.0490
+  [step 444] Pin #2351 crystallized at (16,29,36) vort=0.0284
+  [step 444] Pin #2401 crystallized at (16,60,21) vort=0.0106
+  [step 444] Pin #2451 crystallized at (17,23,27) vort=0.0202
+  [step 444] Pin #2501 crystallized at (17,43,60) vort=0.1026
+  [step 444] Pin #2551 crystallized at (18,7,42) vort=0.0681
+  [step 444] Pin #2601 crystallized at (18,30,32) vort=0.0579
+  [step 444] Pin #2651 crystallized at (18,50,33) vort=0.0434
+  [step 444] Pin #2701 crystallized at (19,15,57) vort=0.0348
+  [step 444] Pin #2751 crystallized at (19,37,51) vort=0.0281
+  [step 444] Pin #2801 crystallized at (20,2,27) vort=0.0767
+  [step 444] Pin #2851 crystallized at (20,29,30) vort=0.0525
+  [step 444] Pin #2901 crystallized at (20,58,19) vort=0.0592
+  [step 444] Pin #2951 crystallized at (21,17,16) vort=0.0390
+  [step 444] Pin #3001 crystallized at (21,36,35) vort=0.0160
+  [step 444] Pin #3051 crystallized at (22,5,30) vort=0.0338
+  [step 444] Pin #3101 crystallized at (22,26,48) vort=0.0489
+  [step 444] Pin #3151 crystallized at (22,58,11) vort=0.0805
+  [step 444] Pin #3201 crystallized at (23,13,54) vort=0.0420
+  [step 444] Pin #3251 crystallized at (23,30,9) vort=0.0839
+  [step 444] Pin #3301 crystallized at (23,63,35) vort=0.0285
+  [step 444] Pin #3351 crystallized at (24,20,1) vort=0.0197
+  [step 444] Pin #3401 crystallized at (24,46,35) vort=0.0133
+  [step 444] Pin #3451 crystallized at (25,9,12) vort=0.0413
+  [step 444] Pin #3501 crystallized at (25,33,55) vort=0.0424
+  [step 444] Pin #3551 crystallized at (25,60,48) vort=0.0828
+  [step 444] Pin #3601 crystallized at (26,12,62) vort=0.0516
+  [step 444] Pin #3651 crystallized at (26,36,24) vort=0.0282
+  [step 444] Pin #3701 crystallized at (27,3,10) vort=0.0544
+  [step 444] Pin #3751 crystallized at (27,20,25) vort=0.0705
+  [step 444] Pin #3801 crystallized at (27,46,48) vort=0.0697
+  [step 444] Pin #3851 crystallized at (28,13,4) vort=0.0603
+  [step 444] Pin #3901 crystallized at (28,32,33) vort=0.0372
+  [step 444] Pin #3951 crystallized at (28,60,28) vort=0.0332
+  [step 444] Pin #4001 crystallized at (29,20,35) vort=0.0974
+  [step 444] Pin #4051 crystallized at (29,43,33) vort=0.0173
+  [step 444] Pin #4101 crystallized at (30,4,44) vort=0.0416
+  [step 444] Pin #4151 crystallized at (30,29,33) vort=0.0273
+  [step 444] Pin #4201 crystallized at (30,57,13) vort=0.0593
+  [step 444] Pin #4251 crystallized at (31,13,29) vort=0.0224
+  [step 444] Pin #4301 crystallized at (31,35,7) vort=0.1031
+  [step 444] Pin #4351 crystallized at (31,55,55) vort=0.0778
+  [step 444] Pin #4401 crystallized at (32,11,42) vort=0.0764
+  [step 444] Pin #4451 crystallized at (32,35,61) vort=0.0482
+  [step 444] Pin #4501 crystallized at (32,58,32) vort=0.0755
+  [step 444] Pin #4551 crystallized at (33,24,55) vort=0.0451
+  [step 444] Pin #4601 crystallized at (33,48,45) vort=0.0503
+  [step 444] Pin #4651 crystallized at (34,17,46) vort=0.0348
+  [step 444] Pin #4701 crystallized at (34,48,8) vort=0.0316
+  [step 444] Pin #4751 crystallized at (35,16,5) vort=0.0242
+  [step 444] Pin #4801 crystallized at (35,47,29) vort=0.0270
+  [step 444] Pin #4851 crystallized at (36,9,3) vort=0.0218
+  [step 444] Pin #4901 crystallized at (36,38,31) vort=0.0586
+  [step 444] Pin #4951 crystallized at (37,2,0) vort=0.0591
+  [step 444] Pin #5001 crystallized at (37,32,49) vort=0.0326
+  [step 444] Pin #5051 crystallized at (37,53,17) vort=0.0318
+  [step 444] Pin #5101 crystallized at (38,14,14) vort=0.0341
+  [step 444] Pin #5151 crystallized at (38,38,30) vort=0.0393
+  [step 444] Pin #5201 crystallized at (38,60,45) vort=0.0382
+  [step 444] Pin #5251 crystallized at (39,21,2) vort=0.0409
+  [step 444] Pin #5301 crystallized at (39,47,55) vort=0.0388
+  [step 444] Pin #5351 crystallized at (40,8,41) vort=0.0375
+  [step 444] Pin #5401 crystallized at (40,40,10) vort=0.0419
+  [step 444] Pin #5451 crystallized at (40,59,14) vort=0.0713
+  [step 444] Pin #5501 crystallized at (41,17,32) vort=0.0421
+  [step 444] Pin #5551 crystallized at (41,45,54) vort=0.0410
+  [step 444] Pin #5601 crystallized at (41,61,15) vort=0.0715
+  [step 444] Pin #5651 crystallized at (42,23,0) vort=0.0971
+  [step 444] Pin #5701 crystallized at (42,44,4) vort=0.0565
+  [step 444] Pin #5751 crystallized at (42,61,35) vort=0.0256
+  [step 444] Pin #5801 crystallized at (43,23,39) vort=0.0363
+  [step 444] Pin #5851 crystallized at (43,48,15) vort=0.0759
+  [step 444] Pin #5901 crystallized at (44,1,7) vort=0.1072
+  [step 444] Pin #5951 crystallized at (44,27,27) vort=0.0561
+  [step 444] Pin #6001 crystallized at (44,50,61) vort=0.0268
+  [step 444] Pin #6051 crystallized at (45,7,14) vort=0.0176
+  [step 444] Pin #6101 crystallized at (45,34,58) vort=0.0431
+  [step 444] Pin #6151 crystallized at (45,63,29) vort=0.0225
+  [step 444] Pin #6201 crystallized at (46,23,57) vort=0.0881
+  [step 444] Pin #6251 crystallized at (46,44,53) vort=0.0402
+  [step 444] Pin #6301 crystallized at (46,62,11) vort=0.0755
+  [step 444] Pin #6351 crystallized at (47,25,30) vort=0.0270
+  [step 444] Pin #6401 crystallized at (47,49,52) vort=0.0397
+  [step 444] Pin #6451 crystallized at (48,4,19) vort=0.0524
+  [step 444] Pin #6501 crystallized at (48,30,39) vort=0.0299
+  [step 444] Pin #6551 crystallized at (48,54,22) vort=0.0362
+  [step 444] Pin #6601 crystallized at (49,8,24) vort=0.0521
+  [step 444] Pin #6651 crystallized at (49,36,5) vort=0.0169
+  [step 444] Pin #6701 crystallized at (49,59,63) vort=0.0419
+  [step 444] Pin #6751 crystallized at (50,19,25) vort=0.0501
+  [step 444] Pin #6801 crystallized at (50,47,37) vort=0.0957
+  [step 444] Pin #6851 crystallized at (51,13,21) vort=0.0684
+  [step 444] Pin #6901 crystallized at (51,40,5) vort=0.0779
+  [step 444] Pin #6951 crystallized at (52,5,53) vort=0.0422
+  [step 444] Pin #7001 crystallized at (52,33,61) vort=0.0259
+  [step 444] Pin #7051 crystallized at (53,9,35) vort=0.0350
+  [step 444] Pin #7101 crystallized at (53,36,1) vort=0.0177
+  [step 444] Pin #7151 crystallized at (54,2,38) vort=0.0537
+  [step 444] Pin #7201 crystallized at (54,31,0) vort=0.0588
+  [step 444] Pin #7251 crystallized at (54,59,40) vort=0.0621
+  [step 444] Pin #7301 crystallized at (55,19,18) vort=0.0577
+  [step 444] Pin #7351 crystallized at (55,40,40) vort=0.0586
+  [step 444] Pin #7401 crystallized at (56,2,51) vort=0.0114
+  [step 444] Pin #7451 crystallized at (56,28,62) vort=0.0590
+  [step 444] Pin #7501 crystallized at (56,63,9) vort=0.0290
+  [step 444] Pin #7551 crystallized at (57,22,63) vort=0.0149
+  [step 444] Pin #7601 crystallized at (57,47,53) vort=0.0544
+  [step 444] Pin #7651 crystallized at (58,3,14) vort=0.0239
+  [step 444] Pin #7701 crystallized at (58,24,62) vort=0.0313
+  [step 444] Pin #7751 crystallized at (58,48,51) vort=0.0512
+  [step 444] Pin #7801 crystallized at (59,1,61) vort=0.0298
+  [step 444] Pin #7851 crystallized at (59,18,7) vort=0.0267
+  [step 444] Pin #7901 crystallized at (59,42,60) vort=0.0649
+  [step 444] Pin #7951 crystallized at (59,62,12) vort=0.0490
+  [step 444] Pin #8001 crystallized at (60,21,11) vort=0.0500
+  [step 444] Pin #8051 crystallized at (60,45,32) vort=0.0123
+  [step 444] Pin #8101 crystallized at (61,3,27) vort=0.0367
+  [step 444] Pin #8151 crystallized at (61,23,9) vort=0.0515
+  [step 444] Pin #8201 crystallized at (61,47,53) vort=0.0542
+  [step 444] Pin #8251 crystallized at (62,3,53) vort=0.0797
+  [step 444] Pin #8301 crystallized at (62,22,26) vort=0.0341
+  [step 444] Pin #8351 crystallized at (62,42,8) vort=0.0412
+  [step 444] Pin #8401 crystallized at (62,60,46) vort=0.0441
+  [step 444] Pin #8451 crystallized at (63,14,13) vort=0.0489
+  [step 444] Pin #8501 crystallized at (63,32,30) vort=0.0566
+  [step 444] Pin #8551 crystallized at (63,58,61) vort=0.0669
+[11:07:19] step   450/5000 | [confinement] T=0.68 | matter=142942 core=0.702 void=0.000 subway=0 wave_E=9477 vort_mag=0.01022 | 0.9 steps/s | ETA 81.5min

@@ -1,0 +1,41 @@
+I crunched the numbers on the final positions (using the exact toroidal pdist math from your script). Here's the clean picture the data actually shows:
+
+Negatives (N0–N9): All 10 pins have merged into one single point [76.7–76.8, 73.3, 55.7–55.8]. They are literally overlapping with ~1.03 cell/step speed. This is the smoking-gun symptom.
+Positives (P0–P9): Exploded outward (exactly as the separation table shows — every P-to-P drift is strongly positive/repelled). Their individual speeds are lower (~0.36–0.50).
++ ↔ – interaction: The printed p0–N0 pair drifted from 40 → 88 cells (repelled on the shortest path). But when I calculate the center of mass of all 10 positives, it has actually moved closer to the negative blob (initial cluster-center distance ≈ 40 cells → final ≈ 22.2 cells). So the + cloud as a whole is being pulled toward the negatives; only the outlier pins got flung the long way around the torus.
+
+In short: the math is doing exactly what it’s written to do — but it’s not doing true opposite-charge attraction / same-charge repulsion.
+The core math issue (the one that survived scaling)
+Right now the force on every pin is identical:
+Pythonforce = [-gx, -gy, -gz]   # ← this is -∇Ψ, same vector for +ω and -ω pins
+Ψ is built with the signs (weights = rho * omega), so negatives create deep wells and positives create hills.
+But because the sensing step never multiplies by the pin’s own omega, every pin (regardless of sign) simply “falls downhill” in Ψ.
+→ All pins rush toward negative wells and flee positive hills.
+→ Same-sign negatives therefore all feel the exact same force, pile on top of each other, and deepen their own well → total collapse (what you see).
+→ Same-sign positives repel each other (good) but are also pulled toward the negative super-nucleus.
+This is why the “gravity scaling issue” you saw last time never fully went away — the interaction is still asymmetric. It behaves like “signed sources, unsigned test particles” instead of real charge.
+The one-line math fix (this should finally give you symmetric EM-like behavior)
+In step_pins, change the force line to:
+Pythonforce = p['omega'] * np.array([
+    -float(gx[ix, iy, iz]),
+    -float(gy[ix, iy, iz]),
+    -float(gz[ix, iy, iz]),
+])
+That’s it.
+Now every pin feels own_omega × (-∇Ψ).
+
+Positive pin → attracted to negative wells, repelled by positive hills.
+Negative pin → attracted to positive hills, repelled by negative wells.
+
+Result: true opposite-sign attraction + same-sign repulsion, exactly like classical charges (or vortices of opposite circulation).
+No more universal collapse of one sign. The 10 negatives will now push each other apart while still being pulled as a group toward the positives → you should see stable or oscillating bound clusters that actually look atomic/molecular instead of one side turning into a black hole.
+(Everything else in your code — vectorized Ψ, toroidal distances, t_rate damping, DAMP, etc. — stays perfect. This is the missing symmetry that makes the substrate feel “complete”.)
+Quick next-step suggestions (math-focused, not model tweaks)
+
+Apply the one-line fix above and re-run ‘10v10’ (or even the lighter ‘opposite’ scenario first to check).
+I expect you’ll see the negatives spread into a loose cloud that still binds to the positives, forming a persistent dipole or orbiting pair on the torus.
+Once the log is working again, add two cheap diagnostics at the end of the loop (every LOG_EVERY):
+Center-of-mass for + pins and for – pins (so you can watch the groups attract/repel cleanly).
+Total “potential energy” ≈ sum over all pins of (p['omega'] * psi_at_p) — should drop as the system relaxes into bound states.
+
+If you want to watch for shell-like or vortex-filament behavior, try the ‘carbon’ scenario with the fix — six same-sign pins should now explode into a stable tetrahedral-ish arrangement instead of just flying apart.

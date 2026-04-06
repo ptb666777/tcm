@@ -1,0 +1,178 @@
+# ============================================================
+# VDC Simulation Configuration v3
+# Adds: EM, Angular Momentum, matter trickle fix
+# ============================================================
+
+# --- GRID ---
+N = 64
+steps = 3000
+print_every = 30
+output_dir = vdc_output
+
+# --- OUTPUT ---
+snap_every = 50
+
+# --- INITIAL CONDITIONS ---
+random_seed = 42
+bang_energy = 50000.0
+bang_thickness = 2.0
+bang_noise = 0.05
+
+# --- WAVE ---
+wave_speed = 0.45
+surf_tension = 0.015
+surf_limit = 5.0
+wave_couple = 0.008
+precip_rate = 0.0
+
+# --- GRAVITY ---
+grav_str = 0.015
+jeans_length = 10.0
+
+# --- THERMAL ---
+pressure_k = 0.10
+gamma = 1.4
+press_frac = 0.40
+v_cap = 2.0
+v_damp = 0.0
+diffusion = 0.0
+
+# --- EPOCH / COOLING ---
+plasma_end = 60
+cooling_end = 160
+cool_floor = 0.10
+
+# --- SUBSTRATE ---
+tension_decay = 0.018
+tension_repair = 0.014
+tension_active = 0.3
+void_threshold = 0.05
+base_thin_density = 0.008
+subway_press_coeff = 0.00002
+tear_thresh_max = 0.05
+void_spill_frac = 0.9
+void_loss_frac = 0.1
+
+# --- VORTEX ---
+magnus_str = 0.014
+outflow_str = 0.012
+outflow_percentile = 98.0
+
+# --- CYCLE ---
+bh_drain = 0.007
+bh_percentile = 99.2
+bh_min_multiplier = 3.0
+subway_scale = 0.0015
+subway_max_inject = 8.0
+void_age_min = 12
+max_eruptions = 3
+
+# --- HEALTH MONITOR ---
+health_max_density = 100000000.0
+health_max_wave = 1000000.0
+health_max_velocity = 100.0
+health_max_subway = 1000000000.0
+health_warn_density = 100000.0
+
+# --- MATTER STATE / EPOCH THRESHOLDS ---
+T_plasma_cooling  = 0.90
+T_confinement     = 0.70
+T_nucleosynthesis = 0.50
+T_recombination   = 0.20
+
+# Cooling rates
+rad_cooling_k = 0.0012
+base_cooling   = 0.0005
+confinement_heat = 0.05
+
+# --- MATTER TRICKLE FIX ---
+# Temperature floor for cooling - prevents endless trickle at T~0
+# Below this temperature, radiation cooling stops
+# (universe is too cold for bond attempts to occur)
+# Without this: T slowly drifts toward but never reaches 0
+# With this: temperature stabilizes at floor, epoch stays in STRUCTURE/STELLAR
+T_cool_floor = 0.02
+
+# Viscosity by epoch
+visc_superfluid   = 0.002
+visc_viscoelastic = 0.015
+visc_gas          = 0.030
+
+# Jeans collapse density threshold
+jeans_density_thresh = 2.0
+
+# --- GRAVITY EPOCH SCALING ---
+grav_weak  = 0.002
+
+# --- VORTEX EPOCH SCALING ---
+magnus_weak = 0.002
+
+# --- CYCLE THRESHOLDS ---
+bh_abs_threshold = 10.0
+void_age_min = 50
+
+# --- CONFINEMENT WAVE ---
+confinement_wave_E = 2.0
+pressure_k_bary = 0.000016
+complexity_exp = 1.5
+diff_plasma = 0.0
+diff_matter = 0.006
+damp_plasma = 0.0
+damp_matter = 0.006
+pin_vort_thresh = 0.005
+pin_sustain = 35
+
+# ============================================================
+# ELECTROMAGNETISM
+# ============================================================
+# Overall EM coupling strength
+# Kept stronger than gravity but screened at large scales
+em_str = 0.12
+
+# Charge separation threshold (fraction of mean density)
+# Cells more than this fraction above/below mean are 'charged'
+em_charge_thresh = 0.05
+
+# Yukawa screening length (cells)
+# EM is exponentially suppressed beyond this range
+# Shorter than jeans_length (10): EM seeds, gravity collapses
+em_screen_length = 8.0
+
+# Vortex-EM coupling: local spin amplifies charge separation
+# Physical: rotating charge = current = magnetic moment
+em_vort_couple = 0.35
+
+# Epoch scaling - EM strength varies with epoch
+em_scale_confinement     = 0.30
+em_scale_nucleosynthesis = 1.00
+em_scale_recombination   = 0.40
+em_scale_structure       = 0.15
+
+# ============================================================
+# ANGULAR MOMENTUM
+# ============================================================
+# Coupling from L_conservation spin-up to vorticity
+# This is the runaway loop: collapse -> spin-up -> Magnus -> collapse
+# 0.18 is moderate: enough for runaway, not so much it explodes
+L_couple = 0.45
+
+# Collapse detection threshold (fractional dRho/dt)
+# Below this: noise. Above this: real collapse.
+L_collapse_thresh = 0.0005
+
+# Maximum spin amplification per step (safety cap)
+L_max_spin_amp = 0.08
+
+# Local smoothing radius for L calculation (cells)
+L_smooth_radius = 3
+
+# L dissipation: spin -> translational KE (post-recombination only)
+# This converts some rotational energy into radial infall -> helps collapse
+L_dissipation = 0.015
+
+# --- SUBSTRATE V3 PIN / TIDAL ---
+tidal_thick_k = 0.08
+pin_dissolve_steps = 30
+pin_merge_radius = 3.0
+pin_max = 150
+recomb_shockwave_k = 0.35
